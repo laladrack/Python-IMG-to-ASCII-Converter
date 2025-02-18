@@ -1,9 +1,14 @@
 from PIL import Image
 import numpy as np
-from collections import defaultdict
+import sys
+
+if len(sys.argv) < 2:
+    sys.exit("too few arguments! include the path to an image")
+else:
+    path = sys.argv[1]
 
 size = (100,100)
-img = Image.open("images.png")
+img = Image.open(path)
 #img = img.resize(size)
 
 img_array = np.array(img.convert("RGB"))
